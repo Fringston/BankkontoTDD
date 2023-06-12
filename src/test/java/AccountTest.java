@@ -36,4 +36,79 @@ class AccountTest {
         //Skapar ett konto för testning
         Account account = new Account(100, 123456789);
     }
+
+    @Test
+    void depositLessThanZero() {
+        //Skapar ett konto för testning
+        Account account = new Account(100, 123456789);
+
+        //Testar deposit-metoden
+        account.deposit(-10);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 100;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
+    }
+    @Test
+    void depositZero() {
+        //Skapar ett konto för testning
+        Account account = new Account(100, 123456789);
+
+        //Testar deposit-metoden
+        account.deposit(0);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 100;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
+    }
+
+    @Test
+    void withdrawMoreThanZero() {
+        //Skapar ett konto för testning
+        Account account = new Account(100, 123456789);
+
+        //Testar withdraw-metoden
+        account.withdraw(100);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 0;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
+    }
+
+    @Test
+    void withdrawLessThanZero() {
+        //Skapar ett konto för testning
+        Account account = new Account(100, 123456789);
+
+        //Testar withdraw-metoden
+        account.withdraw(-10);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 100;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
+    }
+    @Test
+    void withdrawZero() {
+        //Skapar ett konto för testning
+        Account account = new Account(100, 123456789);
+
+        //Testar withdraw-metoden
+        account.withdraw(0);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 100;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
+    }
+    @Test
+    void withdrawMoreThanYouHave() {
+        //Skapar ett konto för testning
+        Account account = new Account(100, 123456789);
+
+        //Testar withdraw-metoden
+        account.withdraw(200);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 100;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
+    }
 }
