@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
 
+
     @Test
     void getAccountNumber() {
         //Skapar ett konto för testning
@@ -35,6 +36,13 @@ class AccountTest {
     void depositMoreThanZero() {
         //Skapar ett konto för testning
         Account account = new Account(100, 123456789);
+
+        //Testar deposit-metoden
+        account.deposit(100);
+
+        // Jämför det förväntade resultatet med det faktiska resultatet
+        double expectedBalance = 200;
+        Assertions.assertEquals(expectedBalance, account.getBalance());
     }
 
     @Test
